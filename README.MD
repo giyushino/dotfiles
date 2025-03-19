@@ -1,2 +1,2 @@
 # dotfiles
-my doftiles. they look pretty nice imo
+my dotfiles. they look pretty nice imo
