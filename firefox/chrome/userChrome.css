@@ -1,0 +1,72 @@
+#navigator-toolbox {
+    background-color: black !important;  /* Black background for the entire top bar */
+}
+/* Remove transparency from all tabs */
+.tab-background {
+    background: #000000 !important;  /* Customize the background color */
+}
+#TabsToolbar {
+    background-color: black !important;  /* Black background for the tab bar */
+}
+/* Optionally, customize the active tab's background */
+.tab-background[selected="true"] {
+    background: #000000 !important;  /* Different color for active tab */
+}
+
+/* Change the font of tab text */
+.tab-label {
+    font-family: 'JetBrains Mono', monospace !important;  /* Replace with your desired font */
+    font-size: 14px !important;  /* Adjust the font size as needed */
+    font-weight: medium !important;  /* Optional: Make the text bold */
+    color: white !important;  /* Change text color to white */
+}
+#new-tab-button {
+  color: #ffffff !important;
+}
+
+#navigator-toolbox .toolbarbutton-icon {
+    fill: white !important;  /* White icons */
+    color: white !important;  /* White text for buttons */
+}
+
+/* Optional: Adjust the color of the menu button (hamburger menu) */
+#PanelUI-menu-button {
+    color: white !important;  /* White color for the hamburger menu icon */
+}
+
+/* Style the button hover effect to match */
+#navigator-toolbox .toolbarbutton:hover {
+    background-color: #333 !important;  /* Darken the background on hover */
+}
+
+
+/* Change the color of the back button (move left) */
+#back-button .toolbarbutton-icon,
+#back-button .toolbarbutton-icon path {
+    fill: white !important;  /* Set the back button icon to white */
+    color: white !important; /* Ensure the icon is white */
+}
+
+/* Change the color of the forward button (move right) */
+#forward-button .toolbarbutton-icon,
+#forward-button .toolbarbutton-icon path {
+    fill: white !important;  /* Set the forward button icon to white */
+    color: white !important; /* Ensure the icon is white */
+}
+
+/* Optional: Change the color of the back and forward buttons when hovered */
+#back-button:hover .toolbarbutton-icon,
+#forward-button:hover .toolbarbutton-icon {
+    fill: #bbb !important;  /* Lighten the color on hover */
+}
+/* Make the audio playing icon white */
+.tabbrowser-tab[soundplaying] .tab-icon-sound {
+    fill: white !important;
+    color: white !important;
+}
+
+/* Make the audio playing icon white, even when not active */
+.tabbrowser-tab .tab-icon-sound {
+    fill: white !important;  /* Set the sound icon color to white */
+    color: white !important;  /* Ensure the icon color is white */
+}
