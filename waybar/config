@@ -9,16 +9,18 @@
     "margin-left": 8,
 
     "modules-left": [
-        "hyprland/workspaces"
+        "cpu",
+        "memory",
+        "custom/gpu",
+        "custom/temperature",
     ],
 
     "modules-center": [
-        "clock"
+        "clock", 
+        "hyprland/workspaces"
     ],
 
     "modules-right": [
-        "cpu",
-        "memory",
         "battery",
         "network",
         "backlight",
@@ -54,17 +56,14 @@
             "critical": 90
         }
     },
-
-    "custom/temperature2": {
-        "exec": "sensors | grep 'Core 0' | awk '{print $3}'",
-        "format": "{output}°C",
-        "interval": 10
+    "custom/gpu": {
+        "exec": "~/.config/waybar/gpu_usage.sh",
+        "interval": 2,
+        "tooltip": false
     },
-
     "custom/temperature": {
-        "exec": "cat /sys/devices/platform/coretemp.0/hwmon/hwmon9/temp1_input",
-        "format": "{output}°C",
-        "interval": 10
+        "exec": "~/.config/waybar/get_temperature.sh",
+        "interval": 2
     },
     "memory": {
         "format": "mem {percentage}%",

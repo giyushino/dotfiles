@@ -1,6 +1,7 @@
 return {
   {
     'vyfor/cord.nvim',  -- Specify the plugin here
+    lazy = false,
     config = function()
       -- Customize the cord.nvim plugin setup
       require('cord').setup({

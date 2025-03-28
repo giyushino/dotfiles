@@ -31,12 +31,6 @@ function config
     nvim
 end
 
-function face
-    set options "ᕦʕ •`ᴥ•´ʔᕤ fishin!" "₍ᐢ•ﻌ•ᐢ₎* what we catchin?" "(≖͞_≖̥) we still have work?" "‧º·(˚ ˃̣̣̥⌓˂̣̣̥ )‧º· i'm tired!" "ᕕ( ╯°□° )ᕗ hurry up!" "(⌣̀_⌣́) fine" "ʕ´• ᴥ•̥`ʔ bearo?" "( •_•) really?" "(˚ ˃̣̣̥⌓˂̣̣̥ ) why me!"   
-    set random_option (shuf -e $options -n 1)
-    echo $random_option
-end
-
 
 function useful
     cd .config 
@@ -45,28 +39,64 @@ end
 
 
 function llm
-    /home/allan/miniconda3/envs/llm/bin/python /home/allan/nvim/python/llm.py
+    echo "======================================="
+    echo "|| 1. llama3.2:1b || 6. qwen2.5-code ||"
+    echo "|| 2. gemma2:9b   ||                 ||"
+    echo "|| 3. qwen2.5     ||                 ||"
+    echo "|| 4. qwen:4b     ||                 ||"
+    echo "|| 5. qwen:7b     ||                 ||"
+    echo "======================================="
+    read -P "select an LLM to run: " -l response
+    switch $response
+        case 1
+            echo "loading llama3.2:1b"
+            ollama run llama3.2:1b
+        case 2
+            echo "loading gemma2:9b"
+            ollama run gemma2:9b
+        case 3
+            echo "loading qwen2.5"
+            ollama run qwen2.5
+        case 4
+            echo "loading qwen:4b"
+            ollama run qwen:4b
+        case 5
+            echo "loading qwen:7b"
+            ollama run qwen:7b
+        case 6
+            echo "loading qwen2.5-coder:7b"
+            ollama run qwen2.5-coder
+        case '*'
+            echo "Invalid selection. Please choose 1-5."
+    end
 end
 
-function llama
-    ollama run llama3.2:1b
+function p
+    python $argv
 end
 
-function gemma
-    ollama run gemma2:9b
+function u
+    uv run $argv
 end
 
-function qwen2.5
-    ollama run qwen2.5
+function venv
+    source .venv/bin/activate.fish
 end
 
-function qwen7
-    ollama run qwen:7b
+function claer 
+    clear
 end
 
-function qwen4
-    ollama run qwen:4b
+function lookfor 
+    find /home/allan -name $argv 2>/dev/null
 end
+
+function z 
+    zellij
+end
+
+
 set -x LS_COLORS "di=36"  # Light blue for directories
+
 
 

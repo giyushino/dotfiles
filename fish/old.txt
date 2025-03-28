@@ -21,7 +21,7 @@ function fish_prompt
         # ╰─>$ echo there
     
         set -l retc brred
-        test $status = 0; and set retc cyan
+        test $status = 0; and set retc brred
     
         set -q __fish_git_prompt_showupstream
         or set -g __fish_git_prompt_showupstream auto
@@ -32,16 +32,16 @@ function fish_prompt
                 set -l field_value $argv[3]
         
                 set_color normal
-                set_color green
+                set_color white
                 echo -n '─'
-                set_color -o green
+                set_color -o brred
                 echo -n '['
                 set_color normal
                 test -n $field_name
                 and echo -n $field_name:
-                set_color green 
+                set_color brred 
                 echo -n $field_value
-                set_color -o green
+                set_color -o brred
                 echo -n ']'
         end
     

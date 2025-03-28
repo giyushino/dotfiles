@@ -24,6 +24,7 @@ tooltip {
 #clock,
 #tray,
 #cpu,
+#custom-gpu,
 #memory,
 #battery,
 #network,
@@ -84,6 +85,7 @@ tooltip {
 }
 
 #cpu,
+#gpu,
 #memory,
 #network,
 #backlight,

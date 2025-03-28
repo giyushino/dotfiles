@@ -20,8 +20,8 @@ function fish_prompt
         # │ 1    15048    0%    arrêtée    sleep 100000
         # ╰─>$ echo there
     
-        set -l retc brred
-        test $status = 0; and set retc brred
+        set -l retc brblue
+        test $status = 0; and set retc brblue
     
         set -q __fish_git_prompt_showupstream
         or set -g __fish_git_prompt_showupstream auto
@@ -32,44 +32,44 @@ function fish_prompt
                 set -l field_value $argv[3]
         
                 set_color normal
-                set_color brred
+                set_color brblue
                 echo -n '─'
-                set_color -o brred
+                set_color -o brblue
                 echo -n '['
                 set_color normal
                 test -n $field_name
                 and echo -n $field_name:
-                set_color brred 
+                set_color brblue 
                 echo -n $field_value
-                set_color -o brred
+                set_color -o brblue
                 echo -n ']'
         end
     
-        set_color brred
+        set_color brblue
         echo -n '┬─'
-        set_color -o brred
+        set_color -o brblue
         echo -n [
     
         if functions -q fish_is_root_user; and fish_is_root_user
-                set_color -o brred
+                set_color -o brblue
         else
-                set_color -o brred
+                set_color -o brblue
         end
     
         echo -n $USER
-        set_color -o brred
+        set_color -o brblue
         echo -n @
     
         if test -z "$SSH_CLIENT"
-                set_color -o brred
+                set_color -o brblue
         else
-                set_color -o brred
+                set_color -o brblue
         end
     
         echo -n (prompt_hostname)
-        set_color -o brred
+        set_color -o brblue
         echo -n :(prompt_pwd)
-        set_color -o brred
+        set_color -o brblue
         echo -n ']'
     
         # Date
@@ -85,7 +85,7 @@ function fish_prompt
                 set -l mode
                 switch $fish_bind_mode
                         case default
-                                set mode (set_color --bold red)N
+                                set mode (set_color --bold brred)N
                         case insert
                                 set mode (set_color --bold green)I
                         case replace_one
@@ -130,9 +130,9 @@ function fish_prompt
         end
     
         set_color normal
-        set_color brred
+        set_color brblue
         echo -n '╰─>'
-        set_color -o brred
+        set_color -o brblue
         echo -n '$ '
         set_color normal
 end
