@@ -1,6 +1,9 @@
 # dotfiles
 ![image](https://github.com/user-attachments/assets/55af7743-994f-4950-a3bd-b8bbfee08b5a)
 
+# Kitty with Blur + Theme 
+![image](https://github.com/user-attachments/assets/a8aba12c-3e52-4bcc-8986-ffa7c37e2cef)
+
 ## Alacritty + Zellij
 ![image](https://github.com/user-attachments/assets/bff3b1a5-9d78-4d07-8443-de6cba1b5295)
 
