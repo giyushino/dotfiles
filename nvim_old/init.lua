@@ -27,9 +27,51 @@ vim.api.nvim_set_keymap('n', '<leader>n', ':setlocal spell spelllang=en_us<CR>',
 vim.opt.clipboard:append({ "unnamed", "unnamedplus" })
 
 vim.api.nvim_set_keymap('n', 'f', ':lua Snacks.dashboard.pick()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'g', ":lua Snacks.dashboard.pick('live_grep')<CR>", { noremap = true, silent = true })
 --vim.api.nvim_set_keymap('n', '<leader>m', ':lua Snacks.picker.explorer({ show_hidden = true })<CR>', { noremap = true, silent = true })
 
+-- First, define the function (same as before)
+function GetVenvPythonPath()
+    local git_root = vim.fn.systemlist('git rev-parse --show-toplevel')[1]
+    
+    if vim.v.shell_error ~= 0 then
+        print("Not in a Git repository or git not installed")
+        return nil
+    end
+    
+    local venv_path = git_root .. '/.venv'
+    if vim.fn.isdirectory(venv_path) == 0 then
+        print("No .venv directory found in Git root")
+        return nil
+    end
+    
+    local python_path
+    if vim.fn.has('win32') == 1 then
+        python_path = venv_path .. '/Scripts/python.exe'
+    else
+        python_path = venv_path .. '/bin/python'
+    end
+    
+    if vim.fn.filereadable(python_path) == 0 then
+        print("Python executable not found in .venv: " .. python_path)
+        return nil
+    end
+    
+    return python_path
+end
+
+-- Then create the user command
+vim.api.nvim_create_user_command('VenvPythonPath',
+    function()
+        local path = GetVenvPythonPath()
+        if path then
+            -- Copy to clipboard (register '+')
+            vim.fn.setreg('+', path)
+            -- Print the path
+            print("Python path: " .. path .. " (copied to clipboard)")
+        end
+    end,
+    { desc = 'Get Python path from .venv in Git repo and copy to clipboard' }
+)
 function RunScript()
   local filetype = vim.bo.filetype
   local current_file = vim.fn.expand('%:p')  -- Full path to current file
@@ -75,9 +117,6 @@ function RunScript()
   
   elseif filetype == 'javascript' then
     vim.cmd('!cd ' .. current_dir .. ' && node ' .. vim.fn.shellescape(current_file))
-  
-  elseif filetype == "tex" then
-    vim.cmd('VimtexCompile')
 
   elseif filetype == 'cpp' then
     -- Compile and run C++ file
@@ -134,6 +173,22 @@ function RunScript2()
 end
 
 
+
+function RunScript3()
+  local filetype = vim.bo.filetype
+
+  if filetype == 'python' then
+    -- Run Python script with the default Python interpreter
+    vim.cmd('!python3 %')
+
+  elseif filetype == 'javascript' then
+    -- Run JavaScript script with Node.js
+    vim.cmd('!node %')
+
+  else
+    print("Unsupported file type")
+  end
+end
 
 vim.api.nvim_set_keymap('n', '<leader>.', ':lua RunScript()<CR>', { noremap = true, silent = true })
 

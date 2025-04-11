@@ -20,7 +20,8 @@
   },
 
   -- Other plugins...
-}--]]
+}
+--]]
 --
 --
 --
@@ -45,7 +46,7 @@ return {
           -- Strings
           String = { fg = "#6dd5a2", bg = "NONE" },
           Statement = { fg = "#6dd5a2", bg = "NONE" },
-          SnacksDashboardHeader = { fg = "#6dd5a2", bg = "NONE" },  -- Malenia red for the header
+          SnacksDashboardHeader = { fg = "#FF6A6A", bg = "NONE" },  -- Malenia red for the header
           SnacksDashboardCenter = { fg = "#E8845A", bg = "NONE" },  -- Copper orange for center text
           SnacksDashboardShortcut = { fg = "#FFD700", bg = "NONE" }, -- Gold for shortcuts
           SnacksDashboardFooter = { fg = "#F0C3A2", bg = "NONE" },  -- Light tan for footer
@@ -98,7 +99,7 @@ return {
           ["@function.builtin"] = { fg = "#FF69B4", bg = "NONE" },
 
           -- Strings inside a function
-          ["@string"] = { fg = "#6dd5a2", bg = "NONE" },
+          ["@string"] = { fg = "#F18437", bg = "NONE" },
 
           -- Variable names inside functions should be baby blue
           ["@variable"] = { fg = "#bfd6e8", bg = "NONE" },  -- Baby blue for variables inside functions
@@ -147,6 +148,8 @@ return {
     end
   }
 }
+--]]
+--
 --
 
 
@@ -268,8 +271,8 @@ return {
     end
   }
 }
---]]
-
+--
+--
 
 --[[return {
     {
