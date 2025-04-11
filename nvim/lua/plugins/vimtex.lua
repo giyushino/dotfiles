@@ -13,7 +13,7 @@ return {
     end,
     config = function()
       -- Key mappings
-      vim.api.nvim_set_keymap('n', '<leader>l', ':VimtexCompile<CR>', { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('n', '<leader>h', ':VimtexCompile<CR>', { noremap = true, silent = true })
       -- Refresh LaTeX document
       vim.api.nvim_set_keymap('n', '<leader>t', ':VimtexView<CR>', { noremap = true, silent = true })
     end,

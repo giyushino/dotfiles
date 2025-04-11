@@ -22,12 +22,12 @@ vim.api.nvim_set_keymap('i', '"', '""<Left>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '$', '$$<Left>', { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '.', '<Nop>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>n', ':setlocal spell spelllang=en_us<CR>', { noremap = true, silent = true })
 
 vim.opt.clipboard:append({ "unnamed", "unnamedplus" })
 
 vim.api.nvim_set_keymap('n', 'f', ':lua Snacks.dashboard.pick()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'g', ":lua Snacks.dashboard.pick('live_grep')<CR>", { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>l', ':lua Snacks.dashboard()<CR>', { noremap = true, silent = true, desc = "Open Snacks dashboard" })
 --vim.api.nvim_set_keymap('n', '<leader>m', ':lua Snacks.picker.explorer({ show_hidden = true })<CR>', { noremap = true, silent = true })
 
 function RunScript()
