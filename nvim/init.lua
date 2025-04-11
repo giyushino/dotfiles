@@ -12,7 +12,7 @@ vim.opt.relativenumber = true
 vim.opt.signcolumn = 'no'
 
 
--- Override the 'y' key in NvimTree to copy the full file path
+vim.api.nvim_set_hl(0, "NvimTreeFolderName", { fg = "#FF69B4", bg = "NONE" }) -- Pink folder names
 vim.api.nvim_set_keymap("v", "<leader>r", ":s///g<Left><Left><Left>", { noremap = true })
 
 vim.api.nvim_set_keymap('i', '(', '()<Left>', { noremap = true, silent = true })
