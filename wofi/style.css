@@ -1,47 +1,47 @@
 window {
-margin: 0px;
-border: 1px solid #7A8478;
-border-radius: 10px;
-background-color: rgba(28,28,28,1);
-font-family: "JetBrains Mono", monospace;  /* Change this to your desired font */
-font-size: 32px;  /* Adjust the font size */
-}
-
-#input {
-margin: 5px;
-border: none;
-color: #D3C6AA;
-background-color: #272E33;
-}
-
-#inner-box {
-margin: 0px;
-border: none;
-background-color: rgba(28,28,28,1);
+  margin: 0px;
+  border: 1px solid #7A8478;
+  border-radius: 10px;
+  background-color: rgb(186, 83, 186);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 32px;
+  overflow: hidden;  /* Ensures corners are visible */
 }
 
 #outer-box {
-margin: 0px;
-background-color: rgba(28,28,28,1);
+  margin: 0px;
+  background-color: #662e9b;
+  border-radius: 10px;  /* Match window */
 }
 
+#inner-box {
+  margin: 0px;
+  border: none;
+  background-color: #662e9b;
+  border-radius: 10px;  /* Match window */
+}
 
-#scroll {
-margin: 0px;
-border: none;
+#input {
+  margin: 5px;
+  border: none;
+  color: #ffffff;
+  background-color: #b686ea;
+  border-radius: 8px;
 }
 
 #text {
-margin: 5px;
-border: none;
-color: #ffffff;
+  margin: 5px;
+  border: none;
+  color: #ffffff;
+  padding-left: 26px;
 }
 
 #entry:selected {
-background-color: #A64253;
+  background-color: rgb(137, 93, 198);
+  border-radius: 6px;
 }
 
-
-* {
-  box-sizing: border-box;
+#scroll {
+  margin: 0px;
+  border: none;
 }
