@@ -27,36 +27,36 @@ return {
                 },
                 sections = {
                     lualine_a = {
-                        { 'mode', color = { fg = '#FF6666' } }  -- Light red color for mode section
+                        { 'mode', color = { fg = '#000000', gui = 'bold' } }  -- Light red color for mode section
                     },
                     lualine_b = {
-                        { 'branch', color = { fg = '#FF6666' } },
-                        { 'diff', color = { fg = '#FF6666' } },
-                        { 'diagnostics', color = { fg = '#FF6666' } }
+                        { 'branch', color = { fg = '#CF9FFF' } },
+                        { 'diff', color = { fg = '#CF9FFF' } },
+                        { 'diagnostics', color = { fg = '#CF9FFF' } }
                     },
                     lualine_c = {
-                        { 'filename', color = { fg = '#FF6666' } }
+                        { 'filename', color = { fg = '#CF9FFF' } }
                     },
                     lualine_x = {
-                        { 'encoding', color = { fg = '#FF6666' } },
-                        { 'fileformat', color = { fg = '#FF6666' } },
-                        { 'filetype', color = { fg = '#FF6666' } }
+                        { 'encoding', color = { fg = '#CF9FFF' } },
+                        { 'fileformat', color = { fg = '#CF9FFF' } },
+                        { 'filetype', color = { fg = '#CF9FFF' } }
                     },
                     lualine_y = {
-                        { 'progress', color = { fg = '#FF6666' } }  -- Light red for progress
+                        { 'progress', color = { fg = '#CF9FFF' } }  -- Light red for progress
                     },
                     lualine_z = {
-                        { 'location', color = { fg = '#FF6666' } }
+                        { 'location', color = { fg = '#000000', gui = 'bold' } }
                     }
                 },
                 inactive_sections = {
                     lualine_a = {},
                     lualine_b = {},
                     lualine_c = {
-                        { 'filename', color = { fg = '#FF6666' } }
+                        { 'filename', color = { fg = '#CF9FFF' } }
                     },
                     lualine_x = {
-                        { 'location', color = { fg = '#FF6666' } }
+                        { 'location', color = { fg = '#CF9FFF' } }
                     },
                     lualine_y = {},
                     lualine_z = {}

@@ -1,6 +1,7 @@
 return {
     {
       'nvim-treesitter/nvim-treesitter',
+      lazy = false, 
       build = ':TSUpdate', -- Automatically update parsers
       event = { "BufReadPost", "BufNewFile" }, -- Lazy load for better performance
       config = function()

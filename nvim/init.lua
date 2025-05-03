@@ -28,7 +28,19 @@ vim.opt.clipboard:append({ "unnamed", "unnamedplus" })
 vim.api.nvim_set_keymap('n', 'f', ':lua Snacks.dashboard.pick()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'g', ":lua Snacks.dashboard.pick('live_grep')<CR>", { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>l', ':lua Snacks.dashboard()<CR>', { noremap = true, silent = true, desc = "Open Snacks dashboard" })
+vim.keymap.set('n', '<leader>c', ':Copilot enable<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>x', ':Copilot disable<CR>', { noremap = true, silent = true })
+
+
+vim.keymap.set('i', '<C-F>', 'copilot#Accept("\\<CR>")', {
+  expr = true,
+  replace_keycodes = false
+})
+vim.g.copilot_no_tab_map = true
 --vim.api.nvim_set_keymap('n', '<leader>m', ':lua Snacks.picker.explorer({ show_hidden = true })<CR>', { noremap = true, silent = true })
+--vim.api.nvim_set_hl(0, "SnacksPickerDir", { fg = "#fab387" }) -- or any hex color you like
+
+
 
 function RunScript()
   local filetype = vim.bo.filetype
@@ -84,6 +96,12 @@ function RunScript()
     local filename = vim.fn.expand('%:t')  -- Get the filename (e.g., main.cpp)
     local output_name = filename:match("(.+)%..+$")  -- File name without extension (e.g., main)
     vim.cmd('!cd ' .. current_dir .. ' && g++ ' .. filename .. ' -o ' .. output_name)
+    vim.cmd('!cd ' .. current_dir .. ' && ./' .. output_name)  -- Run compiled binary
+    
+  elseif filetype == "cuda" then 
+    local filename = vim.fn.expand('%:t')
+    local output_name = filename:match("(.+)%..+$")
+    vim.cmd('!cd ' .. current_dir .. ' && nvcc ' .. filename .. ' -o ' .. output_name)
     vim.cmd('!cd ' .. current_dir .. ' && ./' .. output_name)  -- Run compiled binary
 
   else
@@ -159,4 +177,4 @@ require("lazy").setup({
 })
  
 
-vim.api.nvim_set_hl(0, "Comment", { fg = "#FF8886", italic = false }) -- Orange Comments 🍊🔥
+--vim.api.nvim_set_hl(0, "Comment", { fg = "#FF8886", italic = false }) -- Orange Comments 🍊🔥

@@ -39,36 +39,36 @@ end
 
 
 function llm
-    echo "======================================="
-    echo "|| 1. llama3.2:1b || 6. qwen2.5-code ||"
-    echo "|| 2. gemma2:9b   ||                 ||"
-    echo "|| 3. qwen2.5     ||                 ||"
-    echo "|| 4. qwen:4b     ||                 ||"
-    echo "|| 5. qwen:7b     ||                 ||"
-    echo "======================================="
-    read -P "select an LLM to run: " -l response
-    switch $response
-        case 1
-            echo "loading llama3.2:1b"
-            ollama run llama3.2:1b
-        case 2
-            echo "loading gemma2:9b"
-            ollama run gemma2:9b
-        case 3
-            echo "loading qwen2.5"
-            ollama run qwen2.5
-        case 4
-            echo "loading qwen:4b"
-            ollama run qwen:4b
-        case 5
-            echo "loading qwen:7b"
-            ollama run qwen:7b
-        case 6
-            echo "loading qwen2.5-coder:7b"
-            ollama run qwen2.5-coder
-        case '*'
-            echo "Invalid selection. Please choose 1-5."
-    end
+    echo "========================================"
+    echo "|| 1. qwen3:1.7b   || 6. qwen2.5      ||"
+    echo "|| 2. qwen3:0.6b   || 7.              ||"
+    echo "|| 3. qwen3:4b     || 8.              ||"
+    echo "|| 4. qwen2.5-code || 9.              ||"
+    echo "|| 5. deepseek-r1  ||10.              ||"
+    echo "========================================"
+  read -P "select an LLM to run: " -l response
+  switch $response
+    case 1
+      echo "loading qwen3:1.7b"
+      ollama run qwen3:1.7b
+    case 2
+      echo "loading qwen3:0.6b"
+      ollama run qwen3:0.6b
+    case 3
+      echo "loading qwen3:4b"
+      ollama run qwen3:4b
+    case 4
+      echo "loading qwen2.5-code"
+      ollama run qwen2.5-coder:latest
+    case 5
+      echo "loading deepseek-r1:1.5b"
+      ollama run deepseek-r1:1.5b
+    case 6
+      echo "loading qwen2.5"
+      ollama run qwen2.5
+    case '*'
+      echo "Invalid selection. Please choose 1-6."
+  end
 end
 
 function p
@@ -83,20 +83,33 @@ function venv
     source .venv/bin/activate.fish
 end
 
-function claer 
-    clear
-end
-
 function lookfor 
     find /home/allan -name $argv 2>/dev/null
 end
 
-function z 
-    zellij
+function fs 
+    du -h --max-depth=1  | sort -h
+end
+
+function turing1 
+    ssh allanz@turing1.cs.ucla.edu
+end
+
+function turing2 
+    ssh allanz@turing2.cs.ucla.edu
+end
+
+function laplace1 
+    ssh allanz@laplace1.cs.ucla.edu
 end
 
 
-set -x LS_COLORS "di=36"  # Light blue for directories
+alias blue="hyprshade on blue-light-filter"
+alias bluetoggle="hyprshade toggle"
+
+
+set -gx PATH /opt/cuda/bin $PATH
+set -gx LD_LIBRARY_PATH /opt/cuda/lib64 $LD_LIBRARY_PATH
 
 
 

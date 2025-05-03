@@ -1,5 +1,5 @@
 return {
-  {
+{
     'vyfor/cord.nvim',  -- Specify the plugin here
     lazy = false,
     config = function()
