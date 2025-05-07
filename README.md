@@ -21,3 +21,7 @@
 
 ## Wofi 
 ![image](https://github.com/user-attachments/assets/6bce1d3d-d378-46b1-b6ff-0576aa9dfa8e)
+
+## VSCode 🤮
+![image](https://github.com/user-attachments/assets/d7496119-6345-45b8-9b1e-8e34d62294f3)
+
