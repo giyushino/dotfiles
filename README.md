@@ -1,5 +1,5 @@
 # dotfiles
-![image](https://github.com/user-attachments/assets/55af7743-994f-4950-a3bd-b8bbfee08b5a)
+![image](https://github.com/user-attachments/assets/48b39d9e-c77a-486b-bb04-1c43fcec5794)
 
 ## Transparent Zen Browser 
 ![image](https://github.com/user-attachments/assets/1ce71969-42a9-4647-814b-368dd86d01ad)
