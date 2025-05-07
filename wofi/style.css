@@ -5,20 +5,20 @@ window {
   background-color: rgb(186, 83, 186);
   font-family: "JetBrains Mono", monospace;
   font-size: 32px;
-  overflow: hidden;  /* Ensures corners are visible */
+  overflow: hidden;  
 }
 
 #outer-box {
   margin: 0px;
   background-color: #662e9b;
-  border-radius: 10px;  /* Match window */
+  border-radius: 10px;  
 }
 
 #inner-box {
   margin: 0px;
   border: none;
   background-color: #662e9b;
-  border-radius: 10px;  /* Match window */
+  border-radius: 10px;  
 }
 
 #input {
