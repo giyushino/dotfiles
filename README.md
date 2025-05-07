@@ -1,23 +1,23 @@
 # dotfiles
 ![image](https://github.com/user-attachments/assets/55af7743-994f-4950-a3bd-b8bbfee08b5a)
 
-# Kitty with Blur + Theme 
-![image](https://github.com/user-attachments/assets/a8aba12c-3e52-4bcc-8986-ffa7c37e2cef)
+## Transparent Zen Browser 
+![image](https://github.com/user-attachments/assets/1ce71969-42a9-4647-814b-368dd86d01ad)
 
-## Alacritty + Zellij
-![image](https://github.com/user-attachments/assets/bff3b1a5-9d78-4d07-8443-de6cba1b5295)
+## Neovim on Kitty with Blur + Theme 
+![image](https://github.com/user-attachments/assets/0e6a0b3e-3756-494e-844a-736bd5e8e2dc)
 
-## Neovim
-![image](https://github.com/user-attachments/assets/55bb0aed-ad15-4592-befc-17ef13c2b7d4)
+## Random Terminal Stuff 
+![image](https://github.com/user-attachments/assets/7d8ef269-d071-45a9-a57a-5b7e38eb6be1)
 
 ## Neovim + Latex 
-![image](https://github.com/user-attachments/assets/70d473ac-52b9-4274-a53c-69bd33558132)
+### Dark Mode
+![image](https://github.com/user-attachments/assets/1e2bbdd3-a357-44db-a763-eb39a7918293)
+### Light Mode 
+![image](https://github.com/user-attachments/assets/4da92a26-b811-496b-92f0-df5a297a34e0)
 
-## Btop 
-![image](https://github.com/user-attachments/assets/86d2cacd-3d72-42ae-955a-57e27a0c1d0f)
+## Catppuccin Discord
+![image](https://github.com/user-attachments/assets/da843a45-408a-48d9-9ed1-7cf22fcd1d85)
 
-## Alacritty vs Kitty 
-![image](https://github.com/user-attachments/assets/af379bba-6f32-45c4-ac38-6b57f9c92ab3)
-
-## Fullscreen Zellij + SSH 
-![image](https://github.com/user-attachments/assets/9173743d-97ea-4e99-b422-4e36ca8e3fdc)
+## Wofi 
+![image](https://github.com/user-attachments/assets/6bce1d3d-d378-46b1-b6ff-0576aa9dfa8e)
