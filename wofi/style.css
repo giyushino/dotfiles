@@ -5,7 +5,7 @@ window {
   background-color: rgb(186, 83, 186);
   font-family: "JetBrains Mono", monospace;
   font-size: 32px;
-  overflow: hidden;  
+  overflow: hidden
 }
 
 #outer-box {

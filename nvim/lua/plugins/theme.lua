@@ -39,6 +39,7 @@ return {
     })
 
     vim.cmd.colorscheme("catppuccin")
+    vim.api.nvim_set_hl(0, "String", { fg = "#cba6f7" })
   end
 }
 

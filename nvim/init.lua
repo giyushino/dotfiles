@@ -27,6 +27,9 @@ vim.opt.clipboard:append({ "unnamed", "unnamedplus" })
 
 vim.api.nvim_set_keymap('n', 'f', ':lua Snacks.dashboard.pick()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'g', ":lua Snacks.dashboard.pick('live_grep')<CR>", { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '<leader>;', ':ToggleTerm<CR>', { noremap = true, silent = true })
+
 vim.keymap.set('n', '<leader>l', ':lua Snacks.dashboard()<CR>', { noremap = true, silent = true, desc = "Open Snacks dashboard" })
 vim.keymap.set('n', '<leader>c', ':Copilot enable<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>x', ':Copilot disable<CR>', { noremap = true, silent = true })
@@ -44,11 +47,10 @@ vim.g.copilot_no_tab_map = true
 
 function RunScript()
   local filetype = vim.bo.filetype
-  local current_file = vim.fn.expand('%:p')  -- Full path to current file
-  local current_dir = vim.fn.expand('%:p:h')  -- Directory of the current file 
+  local current_file = vim.fn.expand('%:p')  
+  local current_dir = vim.fn.expand('%:p:h')   
 
   if filetype == 'python' then
-    -- Read the first few lines to find shebang, uv, or conda_env
     local lines = vim.fn.getline(1, 5)
     local env_name
     local use_uv = false
@@ -57,7 +59,7 @@ function RunScript()
     for _, line in ipairs(lines) do
       if line:match("^#!") then
         shebang = line:match("^#!%s*(.+)")
-        break -- Shebang takes priority over other methods
+        break 
       elseif line:match("#%s*uv") then
         use_uv = true
       elseif not env_name then
@@ -79,10 +81,9 @@ function RunScript()
     elseif env_name then
       python_cmd = "/home/allan/miniconda3/envs/" .. env_name .. "/bin/python"
     else
-      python_cmd = "/home/allan/miniconda3/bin/python"  -- Default to base Python
+      python_cmd = "/home/allan/miniconda3/bin/python"  
     end
 
-    -- Run the script
     vim.cmd('!' .. python_cmd .. ' ' .. vim.fn.shellescape(current_file))
   
   elseif filetype == 'javascript' then
@@ -93,64 +94,21 @@ function RunScript()
 
   elseif filetype == 'cpp' then
     -- Compile and run C++ file
-    local filename = vim.fn.expand('%:t')  -- Get the filename (e.g., main.cpp)
-    local output_name = filename:match("(.+)%..+$")  -- File name without extension (e.g., main)
+    local filename = vim.fn.expand('%:t')  
+    local output_name = filename:match("(.+)%..+$")  
     vim.cmd('!cd ' .. current_dir .. ' && g++ ' .. filename .. ' -o ' .. output_name)
-    vim.cmd('!cd ' .. current_dir .. ' && ./' .. output_name)  -- Run compiled binary
+    vim.cmd('!cd ' .. current_dir .. ' && ./' .. output_name) 
     
   elseif filetype == "cuda" then 
     local filename = vim.fn.expand('%:t')
     local output_name = filename:match("(.+)%..+$")
     vim.cmd('!cd ' .. current_dir .. ' && nvcc ' .. filename .. ' -o ' .. output_name)
-    vim.cmd('!cd ' .. current_dir .. ' && ./' .. output_name)  -- Run compiled binary
+    vim.cmd('!cd ' .. current_dir .. ' && ./' .. output_name)  
 
   else
     print("Unsupported file type")
   end
 end
-
-
-function RunScript2()
-  local filetype = vim.bo.filetype
-  local current_dir = vim.fn.expand('%:p:h')  -- Get the directory of the current file
-  
-  if filetype == 'python' then
-    -- Read the first few lines to find the Conda env comment
-    local lines = vim.fn.getline(1, 5)
-    local env_name
-
-    -- Look for the Conda environment specified in the comment
-    for _, line in ipairs(lines) do
-      env_name = line:match("#%s*conda_env:%s*(%S+)")
-      if env_name then break end
-    end
-
-    -- Set the appropriate Python executable
-    local python_cmd
-    if env_name then
-      python_cmd = "/home/allan/miniconda3/envs/" .. env_name .. "/bin/python"
-    else
-      python_cmd = "/home/allan/miniconda3/bin/python"  -- Default to base Python
-    end
-
-    -- Run the script with the detected interpreter
-    vim.cmd('!' .. python_cmd .. ' %')
-
-  elseif filetype == 'javascript' then
-    vim.cmd('!cd ' .. current_dir .. ' && node %')
-
-  elseif filetype == 'cpp' then
-    -- Compile and run C++ file
-    local filename = vim.fn.expand('%:t')  -- Get the filename (e.g., main.cpp)
-    local output_name = filename:match("(.+)%..+$")  -- Get the file name without extension (e.g., main)
-    vim.cmd('!cd ' .. current_dir .. ' && g++ ' .. filename .. ' -o ' .. output_name)
-    vim.cmd('!cd ' .. current_dir .. ' && ./' .. output_name)  -- Run the compiled binary
-
-  else
-    print("Unsupported file type")
-  end
-end
-
 
 
 vim.api.nvim_set_keymap('n', '<leader>.', ':lua RunScript()<CR>', { noremap = true, silent = true })
@@ -178,3 +136,6 @@ require("lazy").setup({
  
 
 --vim.api.nvim_set_hl(0, "Comment", { fg = "#FF8886", italic = false }) -- Orange Comments 🍊🔥
+vim.api.nvim_set_hl(0, "Comment", { fg = "#dfc5fe", italic = false }) 
+vim.api.nvim_set_hl(0, 'LineNr', { fg = "#c0afe2" })
+vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = "#ffcc00", bold = true })
