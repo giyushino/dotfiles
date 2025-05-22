@@ -41,7 +41,7 @@ end
 function llm
     echo "========================================"
     echo "|| 1. qwen3:1.7b   || 6. qwen2.5      ||"
-    echo "|| 2. qwen3:0.6b   || 7.              ||"
+    echo "|| 2. qwen3:0.6b   || 7. gemma2:4b    ||"
     echo "|| 3. qwen3:4b     || 8.              ||"
     echo "|| 4. qwen2.5-code || 9.              ||"
     echo "|| 5. deepseek-r1  ||10.              ||"
@@ -66,6 +66,9 @@ function llm
     case 6
       echo "loading qwen2.5"
       ollama run qwen2.5
+    case 7 
+      echo "loading gemma3:4b"
+      ollama run gemma3:4b  
     case '*'
       echo "Invalid selection. Please choose 1-6."
   end
@@ -79,12 +82,29 @@ function u
     uv run $argv
 end
 
+function c 
+    conda
+    conda activate $argv
+end
+
+function webui 
+    conda 
+    conda activate ollama
+    open-webui serve
+end
+
+
 function venv
     source .venv/bin/activate.fish
 end
 
 function lookfor 
     find /home/allan -name $argv 2>/dev/null
+end
+
+function gorilla 
+    cat /home/allan/nvim/gorilla.txt
+    wl-copy "$(cat /home/allan/nvim/gorilla.txt)"
 end
 
 function fs 
@@ -111,5 +131,5 @@ alias bluetoggle="hyprshade toggle"
 set -gx PATH /opt/cuda/bin $PATH
 set -gx LD_LIBRARY_PATH /opt/cuda/lib64 $LD_LIBRARY_PATH
 
-
+set fish_cursor_default block
 
