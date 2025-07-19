@@ -1,27 +1,22 @@
-# dotfiles
-![image](https://github.com/user-attachments/assets/48b39d9e-c77a-486b-bb04-1c43fcec5794)
+# Dotfiles
+<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/b878e301-df80-4b02-91aa-da2e36d8f296" />
+<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/6769631f-672e-40f8-9b9b-aee6abb6b64b" />
 
-## Transparent Zen Browser 
-![image](https://github.com/user-attachments/assets/1ce71969-42a9-4647-814b-368dd86d01ad)
+## Neovim
+<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/4e8154b6-5063-4fb7-b2cd-7ead59ffb22a" />
+<img width="2550" height="1596" alt="image" src="https://github.com/user-attachments/assets/1b933816-56f5-4510-ac5c-3d4486aaedde" />
 
-## Neovim on Kitty with Blur + Theme 
-![image](https://github.com/user-attachments/assets/0e6a0b3e-3756-494e-844a-736bd5e8e2dc)
+## Zen
+<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/889180d9-b434-47b6-86ff-d9dd720175c3" />
 
-## Random Terminal Stuff 
-![image](https://github.com/user-attachments/assets/7d8ef269-d071-45a9-a57a-5b7e38eb6be1)
+## Sioyek
+<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/1dcb0add-2ebf-4e76-89f7-bb5e6e9b2e83" />
 
-## Neovim + Latex 
-### Dark Mode
-![image](https://github.com/user-attachments/assets/1e2bbdd3-a357-44db-a763-eb39a7918293)
-### Light Mode 
-![image](https://github.com/user-attachments/assets/4da92a26-b811-496b-92f0-df5a297a34e0)
+## SSH 
+<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/f006272f-04dd-437c-b3e1-028a9fa5d054" />
 
-## Catppuccin Discord
-![image](https://github.com/user-attachments/assets/da843a45-408a-48d9-9ed1-7cf22fcd1d85)
+## Kitty + Alacritty
+<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/7eb60d5a-55fe-4a7d-9453-7ed320927db6" />
 
-## Wofi 
-![image](https://github.com/user-attachments/assets/6bce1d3d-d378-46b1-b6ff-0576aa9dfa8e)
-
-## VSCode 🤮
-![image](https://github.com/user-attachments/assets/d7496119-6345-45b8-9b1e-8e34d62294f3)
-
+## Yazi 
+<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/83c685be-ec57-493a-a493-57c186567682" />
