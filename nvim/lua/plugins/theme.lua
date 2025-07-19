@@ -1,4 +1,223 @@
 return {
+    {
+  "EdenEast/nightfox.nvim",
+  priority = 1000, -- ensure it's loaded before other UI plugins
+  config = function()
+    require("nightfox").setup({
+      options = {
+        compile_path = vim.fn.stdpath("cache") .. "/nightfox",
+        compile_file_suffix = "_compiled",
+        transparent = true,
+        terminal_colors = true,
+        dim_inactive = false,
+        module_default = true,
+        colorblind = {
+          enable = false,
+          simulate_only = false,
+          severity = {
+            protan = 0,
+            deutan = 0,
+            tritan = 0,
+          },
+        },
+        styles = {
+          comments = "italic",
+          conditionals = "NONE",
+          constants = "NONE",
+          functions = "NONE",
+          keywords = "NONE",
+          numbers = "NONE",
+          operators = "NONE",
+          strings = "NONE",
+          types = "NONE",
+          variables = "NONE",
+        },
+        inverse = {
+          match_paren = false,
+          visual = false,
+          search = false,
+        },
+        modules = {
+          -- Add any plugin-specific integrations here
+        },
+      },
+      palettes = {},
+      specs = {},
+      groups = {
+        nightfox = {
+          NonText = { fg = "#a8c4ec" }, 
+          Comment = { fg = "#a8c4ec" },
+          String = { fg = "#83a0ce" },
+          Number = { fg = "#5d8be2" }, --{ fg = "#8467aa" }, 
+          ["@variable"] = { fg = "#93b7f2" }, 
+          ["@variable.parameter"] = { fg = "#949dff" }, 
+          ["@parameter"] = { fg = "#949dff" }, 
+          Paramter = { fg = "#949dff" }, 
+          --["@variable.parameter"] = { fg = "#65959f" }, --67b5c5 
+          ["@keyword.function"] = { fg = "#5f8dd9" },
+          Function = { fg = "#6d9cd3" }, 
+          ["@keyword.return"] = { fg = "#6287bb" }, 
+          Conditional = { fg = "#548ee3" }, 
+          Constant = { fg = "#5478f6" }, 
+          ["@constant.builtin"] = { fg = "#6276bb" }, 
+          PreProc = { fg = "#5a90e8" }, 
+          ["@function.builtin"] = { fg = "#5683fb" }, 
+          ["@module"] = { fg = "#91c7e4" }, 
+          ["@constructor"] = { fg = "#7784d5" }, 
+          ["@variable.builtin"] = { fg = "#78aae7" }, 
+          ["@punctuation.special"] = { fg = "#0868dc" }, 
+          Type = { fg = "#6272ff" },
+          ["@type.builtin"] = { fg = "#6272ff" },
+          Keyword = { fg = "#657fda" },
+        }
+      },
+    })
+    vim.cmd("colorscheme nightfox")
+    vim.api.nvim_set_hl(0, "LspSignatureActiveParameter", { fg = "#B19CD7", bold = true })
+    vim.api.nvim_set_hl(0, "Statement", { fg = "#8ecdc8", italic = true })
+    vim.api.nvim_set_hl(0, "Conceal", { fg = "#a8c4ec" }) 
+    vim.api.nvim_set_hl(0, "texNormal", { fg = "#a8c4ec" }) 
+    vim.api.nvim_set_hl(0, "texMathTextConcArg", { link = "Special" }) 
+    vim.api.nvim_set_hl(0, "NvimTreeRootFolder", { link = "Special" }) 
+    end,
+  }
+}
+
+
+--return {
+--  {
+--    "vague2k/vague.nvim",
+--
+--    config = function()
+--      vim.cmd.colorscheme("vague")
+--      require("vague").setup({
+--        transparent = true,
+--        bold = true,
+--        italic = true,
+--        style = {
+--          boolean = "bold",
+--          number = "none",
+--          float = "none",
+--          error = "bold",
+--          comments = "italic",
+--          conditionals = "none",
+--          functions = "none",
+--          headings = "bold",
+--          operators = "none",
+--          strings = "italic",
+--          variables = "none",
+--          keywords = "none",
+--          keyword_return = "italic",
+--          keywords_loop = "none",
+--          keywords_label = "none",
+--          keywords_exception = "none",
+--          builtin_constants = "bold",
+--          builtin_functions = "none",
+--          builtin_types = "bold",
+--          builtin_variables = "none",
+--        },
+--        plugins = {
+--          cmp = {
+--            match = "bold",
+--            match_fuzzy = "bold",
+--          },
+--          dashboard = {
+--            footer = "italic",
+--          },
+--          lsp = {
+--            diagnostic_error = "bold",
+--            diagnostic_hint = "none",
+--            diagnostic_info = "italic",
+--            diagnostic_ok = "none",
+--            diagnostic_warn = "bold",
+--          },
+--          neotest = {
+--            focused = "bold",
+--            adapter_name = "bold",
+--          },
+--          telescope = {
+--            match = "bold",
+--          },
+--        },
+--        on_highlights = function(highlights, colors) end,
+--        colors = {
+--          bg = "#141415",
+--          fg = "#cdcdcd",
+--          floatBorder = "#878787",
+--          line = "#252530",
+--          comment = "#606079",
+--          builtin = "#b4d4cf",
+--          func = "#c48282",
+--          string = "#e8b589",
+--          number = "#e0a363",
+--          property = "#c3c3d5",
+--          constant = "#aeaed1",
+--          parameter = "#bb9dbd",
+--          visual = "#333738",
+--          error = "#d8647e",
+--          warning = "#f3be7c",
+--          hint = "#7e98e8",
+--          operator = "#90a0b5",
+--          keyword = "#6e94b2",
+--          type = "#9bb4bc",
+--          search = "#405065",
+--          plus = "#7fa563",
+--          delta = "#f3be7c",
+--        },
+--      })
+--    end,
+--  },
+--}
+
+--return {
+--  {
+--    "bluz71/vim-moonfly-colors",
+--    name = "moonfly",
+--    lazy = false,
+--    priority = 1000,
+--    config = function()
+--      vim.g.moonflyTransparent = true
+--      vim.cmd.colorscheme("moonfly")
+--      vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = "#6dd5a2", bg = "NONE" })
+--      --vim.api.nvim_set_hl(0, "Function", { fg = "#72ffb5", bold = true })
+--      vim.api.nvim_set_hl(0, "Function", { fg = "#7cd68d", bold = true})
+--      vim.api.nvim_set_hl(0, "Keyword", { fg = "#bba8ff", bold = true })
+--      vim.api.nvim_set_hl(0, "Boolean", { fg = "#73B9EE", bold = true })
+--      vim.api.nvim_set_hl(0, "texEnvArgName", { fg = "#B19CD7", bold = true })
+--      vim.api.nvim_set_hl(0, "Comment", { fg = "#B19CD7", bold = true })
+--      vim.api.nvim_set_hl(0, "texMathZoneTD", { fg = "#73B9EE", bold = true })
+--      vim.api.nvim_set_hl(0, "Conditional", { fg = "#72ffb5", italic = true })
+--      --vim.api.nvim_set_hl(0, "Statement", { fg = "#1dbc60", italic = true })
+--      vim.api.nvim_set_hl(0, "Statement", { fg = "#72ffb5", italic = true })
+--      vim.api.nvim_set_hl(0, "Repeat", { fg = "#77dd77", italic = true })
+--      vim.api.nvim_set_hl(0, "@keyword.exception.python", { fg = "#b59dfa", bold = true })
+--      vim.api.nvim_set_hl(0, "@keyword.operator.python", { fg = "#99cced", bold = true })
+--      vim.api.nvim_set_hl(0, "@keyword.import.python", { fg = "#9C89ff", bold = true })
+--      vim.api.nvim_set_hl(0, "@comment.python", { fg = "#73B9EE", bold = true })
+--      vim.api.nvim_set_hl(0, "texComment", { fg = "#73B9EE", bold = true })
+--      vim.api.nvim_set_hl(0, "string", { fg = "#ADD8E6" })
+--    end,
+--  },
+--}
+
+
+--[[
+return {
+  {
+    "shaunsingh/nord.nvim",
+    name = "nord",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme("nord")
+      vim.g.nord_disable_background = true
+    end,
+  },
+}
+--]]
+
+--[[
+return {
   "catppuccin/nvim", -- fix: was "catpuccin/nvim"
   name = "catppuccin",
   lazy = false,
@@ -40,9 +259,11 @@ return {
 
     vim.cmd.colorscheme("catppuccin")
     vim.api.nvim_set_hl(0, "String", { fg = "#cba6f7" })
+    vim.api.nvim_set_hl(0, "Keyword", { fg = "#ff8800", bold = true })     
+    vim.api.nvim_set_hl(0, "Boolean", { fg = "#afeeee", italic = true })
   end
 }
-
+--]]
 --i like this one a lot
 --[[return {
   {

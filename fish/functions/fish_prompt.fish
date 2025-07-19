@@ -133,6 +133,7 @@ function fish_prompt
         set_color brblue
         echo -n '╰─>'
         set_color -o brblue
-        echo -n '$ '
+        #echo -n '$ '
+        echo -n 'λ '
         set_color normal
 end

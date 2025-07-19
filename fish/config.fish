@@ -6,7 +6,9 @@ if status is-interactive
 # set -gx PATH $HOME/miniconda3/bin $PATH  # commented out by conda initialize
 end
 set -U fish_greeting ""
+set -Ux fish_features no-keyboard-protocols
 
+set -x WORK /home/allan/nvim/projects
 
 function conda
     if test -f /home/allan/miniconda3/bin/conda
@@ -21,10 +23,6 @@ function conda
 end
 
 
-function vpn  
-    cd /opt/cisco/secureclient/bin/ 
-    ./vpnui 
-end
  
 function config  
     cd /home/allan/.config     
@@ -103,8 +101,8 @@ function lookfor
 end
 
 function gorilla 
-    cat /home/allan/nvim/gorilla.txt
-    wl-copy "$(cat /home/allan/nvim/gorilla.txt)"
+    cat /home/allan/nvim/random/gorilla.txt
+    wl-copy "$(cat /home/allan/nvim/random/gorilla.txt)"
 end
 
 function fs 
@@ -123,13 +121,24 @@ function laplace1
     ssh allanz@laplace1.cs.ucla.edu
 end
 
+function jellyfish 
+     p ~/nvim/python/swim/jellyfish.py
+end
 
 alias blue="hyprshade on blue-light-filter"
 alias bluetoggle="hyprshade toggle"
+alias n-word="nvim"
+alias chigga="nvim"
+alias gemini="npx https://github.com/google-gemini/gemini-cli"
+alias quiet="asusctl profile -P quiet"
+alias performance="asusctl profile -P performance"
+alias balanced="asusctl profile -P balanced"
+alias vpn="sudo openconnect --protocol=anyconnect ssl.vpn.ucla.edu"
+
 
 
 set -gx PATH /opt/cuda/bin $PATH
 set -gx LD_LIBRARY_PATH /opt/cuda/lib64 $LD_LIBRARY_PATH
+set -gx PYTORCH_CUDA_ALLOC_CONF "expandable_segments:True"
 
 set fish_cursor_default block
-

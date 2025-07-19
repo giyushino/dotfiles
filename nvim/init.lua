@@ -1,19 +1,53 @@
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 vim.api.nvim_set_keymap('n', '<Space>', ':w<CR>', { noremap = true, silent = true })
-
 vim.opt.tabstop = 4       -- Set the number of spaces a tab character occupies
 vim.opt.shiftwidth = 4    -- Set the number of spaces for indentation
 vim.opt.expandtab = true
 vim.opt.showmode = false
-
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = 'no'
+vim.opt.swapfile = false
+--vim.opt.concealcursor = "n"
+--vim.opt["guicursor"] = "" 
 
+vim.opt.hlsearch = false
+vim.opt.incsearch = true 
+vim.opt.smartcase = true
+vim.opt.ignorecase = true
+
+--vim.g.neovide_opacity = 0.3
+--vim.g.transparency = 0
+--vim.g.neovide_background_color = "C3B1E1" 
 
 vim.api.nvim_set_hl(0, "NvimTreeFolderName", { fg = "#FF69B4", bg = "NONE" }) -- Pink folder names
 vim.api.nvim_set_keymap("v", "<leader>r", ":s///g<Left><Left><Left>", { noremap = true })
+
+if vim.g.neovide == true then
+  vim.api.nvim_set_keymap("n", "<C-+>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>", { silent = true })
+  vim.api.nvim_set_keymap("n", "<C-->", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>", { silent = true })
+  vim.api.nvim_set_keymap("n", "<C-0>", ":lua vim.g.neovide_scale_factor = 1<CR>", { silent = true })
+  vim.g.neovide_background_color = "#1e1e2e" 
+  vim.g.neovide_opacity = 0.7
+  vim.g.neovide_padding_left = 20
+  vim.g.neovide_padding_top = 20
+  vim.g.terminal_color_0 = "#45475a"
+  vim.g.terminal_color_1 = "#f38ba8"
+  vim.g.terminal_color_2 = "#a6e3a1"
+  vim.g.terminal_color_3 = "#f9e2af"
+  vim.g.terminal_color_4 = "#89b4fa"
+  vim.g.terminal_color_5 = "#f5c2e7"
+  vim.g.terminal_color_6 = "#94e2d5"
+  vim.g.terminal_color_7 = "#bac2de"
+  vim.g.terminal_color_8 = "#585b70"
+  vim.g.terminal_color_9 = "#f38ba8"
+  vim.g.terminal_color_10 = "#a6e3a1"
+  vim.g.terminal_color_11 = "#f9e2af"
+  vim.g.terminal_color_12 = "#89b4fa"
+  vim.g.terminal_color_13 = "#f5c2e7"
+  vim.g.terminal_color_14 = "#94e2d5"
+  vim.g.terminal_color_15 = "#a6adc8" end
 
 vim.api.nvim_set_keymap('i', '(', '()<Left>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '[', '[]<Left>', { noremap = true, silent = true })
@@ -30,9 +64,12 @@ vim.api.nvim_set_keymap('n', 'g', ":lua Snacks.dashboard.pick('live_grep')<CR>",
 
 vim.api.nvim_set_keymap('n', '<leader>;', ':ToggleTerm<CR>', { noremap = true, silent = true })
 
-vim.keymap.set('n', '<leader>l', ':lua Snacks.dashboard()<CR>', { noremap = true, silent = true, desc = "Open Snacks dashboard" })
+--vim.keymap.set('n', '<leader>l', ':lua Snacks.dashboard()<CR>', { noremap = true, silent = true, desc = "Open Snacks dashboard" })
 vim.keymap.set('n', '<leader>c', ':Copilot enable<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>x', ':Copilot disable<CR>', { noremap = true, silent = true })
+
+
+
 
 
 vim.keymap.set('i', '<C-F>', 'copilot#Accept("\\<CR>")', {
@@ -112,6 +149,7 @@ end
 
 
 vim.api.nvim_set_keymap('n', '<leader>.', ':lua RunScript()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, silent = true })
 
 -- Ensure lazy.nvim is installed and set it up
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -135,7 +173,15 @@ require("lazy").setup({
 })
  
 
---vim.api.nvim_set_hl(0, "Comment", { fg = "#FF8886", italic = false }) -- Orange Comments 🍊🔥
-vim.api.nvim_set_hl(0, "Comment", { fg = "#dfc5fe", italic = false }) 
-vim.api.nvim_set_hl(0, 'LineNr', { fg = "#c0afe2" })
-vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = "#ffcc00", bold = true })
+--vim.api.nvim_set_hl(0, "Comment", { fg = "#dfc5fe", italic = false }) 
+--vim.api.nvim_set_hl(0, 'LineNr', { fg = "#64e3a1" })
+--vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = "#2eb774", bold = true })
+--vim.api.nvim_set_keymap('n', '<C-[>', ':lua vim.diagnostic.open_float()<CR>', { noremap = true, silent = true })
+
+
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
+
+

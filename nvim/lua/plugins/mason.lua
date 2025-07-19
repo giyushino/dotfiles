@@ -12,7 +12,7 @@ return {
     lazy = true,
     config = function()
       require('mason-lspconfig').setup({
-        ensure_installed = { "pyright", "clangd", "texlab", "tinymist" },
+        ensure_installed = { "pyright", "clangd", "texlab", "tinymist", "ocamllsp", "eslint", "vtsls"},
       })
     end,
   },
@@ -20,7 +20,7 @@ return {
   {
     'neovim/nvim-lspconfig',
     lazy = true,  -- Lazy load LSP servers
-    ft = { 'python', 'cpp', 'javascript', 'tex' },  -- Load for these filetypes
+    ft = { 'python', 'cpp', 'javascript', 'tex', 'ml', 'typ' },  -- Load for these filetypes
     config = function()
       local lspconfig = require('lspconfig')
 
@@ -38,6 +38,11 @@ return {
         end,
       }
 
+      lspconfig.ocamllsp.setup{
+        on_attach = function(client, bufnr)
+        end,
+     }
+
       -- TexLab setup
       lspconfig.texlab.setup{
         on_attach = function(client, bufnr)
@@ -45,6 +50,11 @@ return {
         end,
       }
 
+      lspconfig.vtsls.setup{
+        on_attach = function(client, bufnr)
+          -- Custom actions for TexLab
+        end,
+      }
       -- Add any other LSP setups here...
     end,
   },
