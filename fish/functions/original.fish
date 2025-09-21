@@ -33,18 +33,22 @@ function fish_prompt
         
                 set_color normal
                 set_color brblue
-                echo -n ' | '
+                echo -n '─'
                 set_color -o brblue
+                echo -n '['
                 set_color normal
                 test -n $field_name
                 and echo -n $field_name:
                 set_color brblue 
                 echo -n $field_value
                 set_color -o brblue
+                echo -n ']'
         end
     
         set_color brblue
+        echo -n '┬─'
         set_color -o brblue
+        echo -n [
     
         if functions -q fish_is_root_user; and fish_is_root_user
                 set_color -o brblue
@@ -66,6 +70,7 @@ function fish_prompt
         set_color -o brblue
         echo -n :(prompt_pwd)
         set_color -o brblue
+        echo -n ']'
     
         # Date
         _nim_prompt_wrapper $retc '' (date +%X)
@@ -126,6 +131,7 @@ function fish_prompt
     
         set_color normal
         set_color brblue
+        echo -n '╰─>'
         set_color -o brblue
         #echo -n '$ '
         echo -n 'λ '

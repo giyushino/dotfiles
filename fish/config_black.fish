@@ -144,7 +144,6 @@ alias black="/home/allan/nvim/bash/colors.sh black"
 
 alias color="/home/allan/nvim/bash/colors.sh"
 alias todo="/home/allan/nvim/cpp/todo/todo /home/allan/nvim/cpp/todo/todo.txt"
-
 #alias blue="hyprshade on blue-light-filter"
 #alias bluetoggle="hyprshade toggle"
 #alias blue="hyprsunset --temperature 4000 & disown"
@@ -172,6 +171,4 @@ zoxide init --cmd cd fish | source
 set -gx PATH $PATH /home/allan/.lmstudio/bin
 # End of LM Studio CLI section
 
-#set -Ux LS_COLORS "di=0:fi=0:ln=0:pi=0:so=0:bd=0:cd=0:or=0:mi=0:ex=0"
-
-set -x LS_COLORS "di=0;34:fi=1;34"
+set -x LS_COLORS "di=0;37:fi=1;97"
