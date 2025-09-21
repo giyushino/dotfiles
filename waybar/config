@@ -20,6 +20,7 @@
     ],
 
     "modules-right": [
+        "custom/mode",
         "battery",
         "backlight",
         "pulseaudio", 
@@ -55,6 +56,11 @@
     },
     "custom/gpu": {
         "exec": "~/.config/waybar/gpu_usage.sh",
+        "interval": 2,
+        "tooltip": false
+    },
+    "custom/mode": {
+        "exec": "~/.config/waybar/mode.sh",
         "interval": 2,
         "tooltip": false
     },

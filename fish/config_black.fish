@@ -1,7 +1,7 @@
 if status is-interactive
     set options "ᕦʕ •`ᴥ•´ʔᕤ fishin!" "₍ᐢ•ﻌ•ᐢ₎* what we catchin?" "(≖͞_≖̥) we still have work?" "‧º·(˚ ˃̣̣̥⌓˂̣̣̥ )‧º· i'm tired!" "ᕕ( ╯°□° )ᕗ hurry up!" "(⌣̀_⌣́) fine" "ʕ´• ᴥ•̥`ʔ bearo?" "( •_•) really?" "(˚ ˃̣̣̥⌓˂̣̣̥ ) why me!"   
     set random_option (shuf -e $options -n 1)
-    echo $random_option
+    echo (set_color white)$random_option(set_color normal)
     # Initialize Conda
 # set -gx PATH $HOME/miniconda3/bin $PATH  # commented out by conda initialize
 end
@@ -172,3 +172,4 @@ set -gx PATH $PATH /home/allan/.lmstudio/bin
 # End of LM Studio CLI section
 
 set -x LS_COLORS "di=0;37:fi=1;97"
+alias ls="ls --color=auto"

@@ -13,6 +13,8 @@ if [ $COLOR == "blue" ]; then
     cp $BASE/fish/functions/blue.fish $BASE/fish/functions/fish_prompt.fish
     cp $BASE/waybar/blue.css $BASE/waybar/style.css
     cp $BASE/hypr/blue.conf $BASE/hypr/hyprland.conf 
+    cp $BASE/kitty/blue.conf $BASE/kitty/kitty.conf
+
     hyprctl hyprpaper preload /home/allan/Downloads/images/aquarium_reformat.jpg
     hyprctl hyprpaper wallpaper "eDP-1,/home/allan/Downloads/images/aquarium_reformat.jpg"
     hyprctl hyprpaper wallpaper "DP-1,/home/allan/Downloads/images/aquarium_reformat.jpg"
@@ -23,6 +25,7 @@ else
     cp $BASE/fish/functions/black.fish $BASE/fish/functions/fish_prompt.fish
     cp $BASE/waybar/black.css $BASE/waybar/style.css
     cp $BASE/hypr/black.conf $BASE/hypr/hyprland.conf 
+    cp $BASE/kitty/black.conf $BASE/kitty/kitty.conf
 
     hyprctl hyprpaper preload /home/allan/Downloads/images/ed1.jpg
     hyprctl hyprpaper wallpaper "eDP-1,/home/allan/Downloads/images/ed1.jpg"

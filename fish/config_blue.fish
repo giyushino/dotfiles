@@ -175,3 +175,4 @@ set -gx PATH $PATH /home/allan/.lmstudio/bin
 #set -Ux LS_COLORS "di=0:fi=0:ln=0:pi=0:so=0:bd=0:cd=0:or=0:mi=0:ex=0"
 
 set -x LS_COLORS "di=0;34:fi=1;34"
+alias ls="ls --color=auto"
