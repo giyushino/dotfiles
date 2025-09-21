@@ -12,7 +12,7 @@ return {
     lazy = true,
     config = function()
       require('mason-lspconfig').setup({
-        ensure_installed = { "pyright", "clangd", "texlab", "tinymist", "ocamllsp", "eslint", "vtsls"},
+        ensure_installed = { "pyright", "clangd", "texlab", "tinymist", "ocamllsp", "eslint", "vtsls", "html-lsp"},
       })
     end,
   },
@@ -20,7 +20,7 @@ return {
   {
     'neovim/nvim-lspconfig',
     lazy = true,  -- Lazy load LSP servers
-    ft = { 'python', 'cpp', 'javascript', 'tex', 'ml', 'typ' },  -- Load for these filetypes
+    ft = { 'python', 'cpp', 'javascript', 'tex', 'ml', 'typ', 'html' },  -- Load for these filetypes
     config = function()
       local lspconfig = require('lspconfig')
 
@@ -50,6 +50,30 @@ return {
         end,
       }
 
+      lspconfig.clangd.setup {
+        on_attach = function(client, bufnr)
+          -- Custom actions for Clangd (keep your existing actions here)
+        end,
+        cmd = { "clangd", "--header-insertion=iwyu", "--query-driver=/usr/bin/g++" },
+        init_options = {
+          clangdFileStatus = true,
+        },
+        settings = {
+          clangd = {
+            arguments = {
+              "-I/opt/libtorch/include",
+              "-I/opt/libtorch/include/torch/csrc/api/include",
+              "-std=c++17",
+              "-D_GLIBCXX_USE_CXX11_ABI=1",
+            },
+          },
+        },
+      }
+      lspconfig.html.setup{
+        on_attach = function(client, bufnr)
+          -- Custom actions for TexLab
+        end,
+      }
       lspconfig.vtsls.setup{
         on_attach = function(client, bufnr)
           -- Custom actions for TexLab

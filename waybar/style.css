@@ -28,7 +28,8 @@ tooltip {
 #memory,
 #battery,
 #network,
-#custom-temperature,
+#custom-temperature, 
+#custom-window,
 #backlight,
 #temperature,
 #pulseaudio {
@@ -102,7 +103,7 @@ tooltip {
 #memory.critical {
     background-color: #a1cedd;
     border: 2px solid #badaff;
-    color: #badaff; /* White text */
+    color: #000000; /* White text */
 }
 
 #battery.warning,
@@ -110,6 +111,6 @@ tooltip {
 #battery.urgent {
     background-color: #ddc7a1;
     border: 2px solid #badaff;
-    color: #badaff; /* White text */
+    color: #000000; /* White text */
 }
 

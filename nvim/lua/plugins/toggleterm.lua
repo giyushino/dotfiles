@@ -2,6 +2,7 @@ return {
   {
     "akinsho/toggleterm.nvim",
     version = "*",
+    lazy = false,
     config = function()
       local toggleterm = require("toggleterm")
 
@@ -24,7 +25,6 @@ return {
           winblend = 0,
         },
       })
-
       local Terminal = require("toggleterm.terminal").Terminal
 
       -- Create persistent terminal instances
@@ -37,9 +37,9 @@ return {
         float_term:toggle()
       end, { desc = "Toggle Float Terminal" })
 
-      vim.keymap.set("n", "<leader>;", function()
-        vert_term:toggle()
-      end, { desc = "Toggle Vertical Terminal" })
+--      vim.keymap.set("n", "<leader>;", function()
+--        vert_term:toggle()
+--      end, { desc = "Toggle Vertical Terminal" })
 
       vim.keymap.set("n", "<leader>n", function()
         horiz_term:toggle()

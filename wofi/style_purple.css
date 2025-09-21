@@ -2,7 +2,7 @@ window {
   margin: 0px;
   border: 1px solid #5a5c8d;
   border-radius: 10px;
-  background-color: rgba(20, 18, 36, 0.3); /* Dark blue background with transparency */
+  background-color: rgba(20, 18, 36, 0.5); /* Dark blue background with transparency */
   font-family: "JetBrains Mono", monospace;
   font-size: 32px;
   overflow: hidden;
@@ -11,7 +11,7 @@ window {
 #outer-box,
 #inner-box {
   margin: 0px;
-  background-color: rgba(27, 83, 151, 0.2); /* Deep purple */
+  background-color: rgba(104, 79, 192, 0.5); /* Deep purple */
   border-radius: 10px;
   overflow: hidden;
 }
@@ -20,7 +20,7 @@ window {
   margin: 5px;
   border: none;
   color: #ffffff;
-  background-color: rgba(52, 120, 203, 0.25); /* Muted purple */
+  background-color: rgba(90, 65, 150, 0.25); /* Muted purple */
   border-radius: 8px;
 }
 
@@ -33,12 +33,12 @@ window {
 }
 
 #entry:selected {
-  background-color: rgba(129, 151, 239, 0.2); /* Slight blue-purple tint */
+  background-color: rgba(100, 80, 180, 0.3); /* Highlighted selection - soft violet */
   border-radius: 6px;
 }
 
 #scroll {
   margin: 0px;
   border: none;
-  background-color: rgba(129, 151, 239, 0.2); /* Slight blue-purple tint */
+  background-color: rgba(40, 30, 70, 0.2); /* Slight blue-purple tint */
 }

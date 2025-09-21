@@ -50,7 +50,8 @@ return {
           String = { fg = "#83a0ce" },
           Number = { fg = "#5d8be2" }, --{ fg = "#8467aa" }, 
           ["@variable"] = { fg = "#93b7f2" }, 
-          ["@variable.parameter"] = { fg = "#949dff" }, 
+--          ["@variable.parameter"] = { fg = "#949dff" }, 
+          ["@variable.parameter"] = { fg = "#53a1e0" }, 
           ["@parameter"] = { fg = "#949dff" }, 
           Paramter = { fg = "#949dff" }, 
           --["@variable.parameter"] = { fg = "#65959f" }, --67b5c5 

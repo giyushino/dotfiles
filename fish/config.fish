@@ -121,20 +121,37 @@ function laplace1
     ssh allanz@laplace1.cs.ucla.edu
 end
 
+function debian 
+    ssh giyushino@131.179.104.61
+end
+
+
 function jellyfish 
      p ~/nvim/python/swim/jellyfish.py
 end
 
-alias blue="hyprshade on blue-light-filter"
-alias bluetoggle="hyprshade toggle"
+function vpn
+    /opt/cisco/secureclient/bin/vpnui
+end
+
+function brainrot
+    python /home/allan/nvim/random/brainrot/brainrot.py #| tee >(wl-copy)
+end
+
+
+alias todo="/home/allan/nvim/cpp/todo/todo /home/allan/nvim/cpp/todo/todo.txt"
+#alias blue="hyprshade on blue-light-filter"
+#alias bluetoggle="hyprshade toggle"
+alias blue="hyprsunset --temperature 4000 & disown"
+alias bluestrong="hyprsunset --temperature 3500 & disown"
+alias bluestrongest="hyprsunset --temperature 2500 & disown"
+alias blueoff="pkill -x hyprsunset"
 alias n-word="nvim"
 alias chigga="nvim"
 alias gemini="npx https://github.com/google-gemini/gemini-cli"
 alias quiet="asusctl profile -P quiet"
 alias performance="asusctl profile -P performance"
 alias balanced="asusctl profile -P balanced"
-alias vpn="sudo openconnect --protocol=anyconnect ssl.vpn.ucla.edu"
-
 
 
 set -gx PATH /opt/cuda/bin $PATH
@@ -142,3 +159,11 @@ set -gx LD_LIBRARY_PATH /opt/cuda/lib64 $LD_LIBRARY_PATH
 set -gx PYTORCH_CUDA_ALLOC_CONF "expandable_segments:True"
 
 set fish_cursor_default block
+#set -g fish_key_bindings fish_vi_key_bindings
+zoxide init --cmd cd fish | source
+
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /home/allan/.lmstudio/bin
+# End of LM Studio CLI section
+
