@@ -1,25 +1,37 @@
-return {
-    {
-      "ray-x/lsp_signature.nvim",
-      event = "InsertEnter",
-      opts = {
-        bind = true,
-        handler_opts = {
-          border = "rounded"
-        }, 
-        floating_window = true, 
-        floating_window_off_x = 20, 
-        floating_window_off_y = 0,
-        --[[
-        hint_scheme = "String",
-        hint_inline = function() return 'eol' end,
-        hint_enable = true,
-        --]]
-        zindex = 50,
-        transparency = 100, 
-      },
-      config = function(_, opts) require'lsp_signature'.setup(opts)
-        require('lsp_signature').setup(opts)
-      end
-    }
-}
+return {}
+--return {
+--  {
+--    "ray-x/lsp_signature.nvim",
+--    -- remove the automatic event
+--    opts = {
+--      bind = false, -- already good for perf; manual trigger only
+--      handler_opts = {
+--        border = "rounded"
+--      },
+--      floating_window = false,
+--      floating_window_off_x = 20,
+--      floating_window_off_y = 0,
+--      zindex = 50,
+--      transparency = 100,
+--      -- New perf/stability options:
+--      close_timeout = 0, -- ms to wait before closing after last param
+--      doc_lines = 3, -- Limit doc lines for faster rendering
+--      hint_enable = false, -- No virtual hints to reduce redraws
+--      fix_pos = true, -- Better position locking to avoid sticking
+--      debug = false, -- No logging overhead
+--    },
+--    config = function(_, opts)
+--      local sig = require('lsp_signature')
+--      sig.setup(opts)
+--
+--      -- 🔑 This is the key part to prevent the issue!
+--      -- Trigger the signature window with a keymap only in insert mode.
+--      vim.api.nvim_set_keymap(
+--        "i",
+--        "<C-S-k>",
+--        "lua require('lsp_signature').toggle_float_win()",
+--        { noremap = true, silent = true }
+--      )
+--    end
+--  }
+--}

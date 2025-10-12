@@ -14,6 +14,9 @@ if [ $COLOR == "blue" ]; then
     cp $BASE/waybar/blue.css $BASE/waybar/style.css
     cp $BASE/hypr/blue.conf $BASE/hypr/hyprland.conf 
     cp $BASE/kitty/blue.conf $BASE/kitty/kitty.conf
+    cp $BASE/nvim/blue/init.lua $BASE/nvim/init.lua
+    cp $BASE/nvim/blue/theme.lua $BASE/nvim/lua/plugins/theme.lua
+    cp $BASE/nvim/blue/lualine.lua $BASE/nvim/lua/plugins/lualine.lua
 
     hyprctl hyprpaper preload /home/allan/Downloads/images/aquarium_reformat.jpg
     hyprctl hyprpaper wallpaper "eDP-1,/home/allan/Downloads/images/aquarium_reformat.jpg"
@@ -26,6 +29,9 @@ else
     cp $BASE/waybar/black.css $BASE/waybar/style.css
     cp $BASE/hypr/black.conf $BASE/hypr/hyprland.conf 
     cp $BASE/kitty/black.conf $BASE/kitty/kitty.conf
+    cp $BASE/nvim/black/init.lua $BASE/nvim/init.lua
+    cp $BASE/nvim/black/theme.lua $BASE/nvim/lua/plugins/theme.lua
+    cp $BASE/nvim/black/lualine.lua $BASE/nvim/lua/plugins/lualine.lua
 
     hyprctl hyprpaper preload /home/allan/Downloads/images/ed1.jpg
     hyprctl hyprpaper wallpaper "eDP-1,/home/allan/Downloads/images/ed1.jpg"

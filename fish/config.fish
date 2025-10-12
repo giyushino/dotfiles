@@ -1,7 +1,7 @@
 if status is-interactive
     set options "ᕦʕ •`ᴥ•´ʔᕤ fishin!" "₍ᐢ•ﻌ•ᐢ₎* what we catchin?" "(≖͞_≖̥) we still have work?" "‧º·(˚ ˃̣̣̥⌓˂̣̣̥ )‧º· i'm tired!" "ᕕ( ╯°□° )ᕗ hurry up!" "(⌣̀_⌣́) fine" "ʕ´• ᴥ•̥`ʔ bearo?" "( •_•) really?" "(˚ ˃̣̣̥⌓˂̣̣̥ ) why me!"   
     set random_option (shuf -e $options -n 1)
-    echo $random_option
+    echo (set_color white)$random_option(set_color normal)
     # Initialize Conda
 # set -gx PATH $HOME/miniconda3/bin $PATH  # commented out by conda initialize
 end
@@ -138,18 +138,19 @@ function brainrot
     python /home/allan/nvim/random/brainrot/brainrot.py #| tee >(wl-copy)
 end
 
+alias bluestrong="nohup hyprsunset --temperature 3500 >/dev/null 2>&1 & disown"
+alias bluestrongest="nohup hyprsunset --temperature 3000 >/dev/null 2>&1 & disown"
 
 alias blue="/home/allan/nvim/bash/colors.sh blue"
 alias black="/home/allan/nvim/bash/colors.sh black"
 
 alias color="/home/allan/nvim/bash/colors.sh"
 alias todo="/home/allan/nvim/cpp/todo/todo /home/allan/nvim/cpp/todo/todo.txt"
-
 #alias blue="hyprshade on blue-light-filter"
 #alias bluetoggle="hyprshade toggle"
 #alias blue="hyprsunset --temperature 4000 & disown"
-alias bluestrong="hyprsunset --temperature 3500 & disown"
-alias bluestrongest="hyprsunset --temperature 2500 & disown"
+#alias bluestrong="nohup hyprsunset --temperature 3500 >/dev/null 2>&1 &"
+#alias bluestrongest="nohup hyprsunset --temperature 2500 >/dev/null 2>&1 &"
 alias blueoff="pkill -x hyprsunset"
 alias n-word="nvim"
 alias chigga="nvim"
@@ -172,6 +173,5 @@ zoxide init --cmd cd fish | source
 set -gx PATH $PATH /home/allan/.lmstudio/bin
 # End of LM Studio CLI section
 
-#set -Ux LS_COLORS "di=0:fi=0:ln=0:pi=0:so=0:bd=0:cd=0:or=0:mi=0:ex=0"
-
-set -x LS_COLORS "di=0;34:fi=1;34"
+set -x LS_COLORS "di=0;37:fi=1;97"
+alias ls="ls --color=auto"

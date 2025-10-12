@@ -1,63 +1,42 @@
 return {
   {
     'williamboman/mason.nvim',
-    lazy = false,  -- Ensure mason.nvim is loaded immediately
+    lazy = false,
     config = function()
-      require('mason').setup()  -- Basic setup for mason.nvim
+      require('mason').setup()
     end,
   },
 
   {
     'williamboman/mason-lspconfig.nvim',
-    lazy = true,
+    lazy = false,
+    dependencies = { 'williamboman/mason.nvim' },
     config = function()
       require('mason-lspconfig').setup({
-        ensure_installed = { "pyright", "clangd", "texlab", "tinymist", "ocamllsp", "eslint", "vtsls", "html-lsp"},
+        ensure_installed = { "pyright", "clangd", "texlab", "tinymist", "ocamllsp", "eslint", "vtsls", "html", "lua_ls" },
+        automatic_installation = true,
       })
     end,
   },
 
   {
     'neovim/nvim-lspconfig',
-    lazy = true,  -- Lazy load LSP servers
-    ft = { 'python', 'cpp', 'javascript', 'tex', 'ml', 'typ', 'html' },  -- Load for these filetypes
+    lazy = false,
+    ft = { 'python', 'cpp', 'javascript', 'tex', 'ml', 'typ', 'html', 'lua' },
     config = function()
       local lspconfig = require('lspconfig')
 
-      -- BasedPyright setup with reduced error reporting
-      lspconfig.pyright.setup{
-        on_attach = function(client, bufnr) 
-          require "lsp_signature".on_attach(signature_setup, bufnr)
-        end,
-      }
+      ---------------------------------------------------
+      -- Python
+      ---------------------------------------------------
+      vim.lsp.config['pyright'] = {}
 
-      -- Clangd setup
-      lspconfig.clangd.setup{
-        on_attach = function(client, bufnr)
-          -- Custom actions for Clangd
-        end,
-      }
-
-      lspconfig.ocamllsp.setup{
-        on_attach = function(client, bufnr)
-        end,
-     }
-
-      -- TexLab setup
-      lspconfig.texlab.setup{
-        on_attach = function(client, bufnr)
-          -- Custom actions for TexLab
-        end,
-      }
-
-      lspconfig.clangd.setup {
-        on_attach = function(client, bufnr)
-          -- Custom actions for Clangd (keep your existing actions here)
-        end,
+      ---------------------------------------------------
+      -- C/C++
+      ---------------------------------------------------
+      vim.lsp.config['clangd'] = {
         cmd = { "clangd", "--header-insertion=iwyu", "--query-driver=/usr/bin/g++" },
-        init_options = {
-          clangdFileStatus = true,
-        },
+        init_options = { clangdFileStatus = true },
         settings = {
           clangd = {
             arguments = {
@@ -69,17 +48,56 @@ return {
           },
         },
       }
-      lspconfig.html.setup{
-        on_attach = function(client, bufnr)
-          -- Custom actions for TexLab
-        end,
+
+      ---------------------------------------------------
+      -- OCaml
+      ---------------------------------------------------
+      vim.lsp.config['ocamllsp'] = {}
+
+      ---------------------------------------------------
+      -- TeX
+      ---------------------------------------------------
+      vim.lsp.config['texlab'] = {}
+
+      ---------------------------------------------------
+      -- HTML
+      ---------------------------------------------------
+      vim.lsp.config['html'] = {}
+
+      ---------------------------------------------------
+      -- TypeScript / JavaScript
+      ---------------------------------------------------
+      vim.lsp.config['vtsls'] = {}
+
+      ---------------------------------------------------
+      -- Tinymist
+      ---------------------------------------------------
+      if vim.lsp.config['tinymist'] then
+        vim.lsp.config['tinymist'].on_attach = nil
+      end
+
+      ---------------------------------------------------
+      -- ESLint
+      ---------------------------------------------------
+      if vim.lsp.config['eslint'] then
+        vim.lsp.config['eslint'].on_attach = nil
+      end
+
+      ---------------------------------------------------
+      -- Lua
+      ---------------------------------------------------
+      vim.lsp.config['luals'] = {
+        cmd = { 'lua-language-server' },
+        filetypes = { 'lua' },
+        root_markers = { { '.luarc.json', '.luarc.jsonc' }, '.git' },
+        settings = {
+          Lua = {
+            runtime = { version = 'LuaJIT' },
+            diagnostics = { globals = { 'vim' } },
+            workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+          },
+        },
       }
-      lspconfig.vtsls.setup{
-        on_attach = function(client, bufnr)
-          -- Custom actions for TexLab
-        end,
-      }
-      -- Add any other LSP setups here...
     end,
   },
 }

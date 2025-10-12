@@ -138,6 +138,8 @@ function brainrot
     python /home/allan/nvim/random/brainrot/brainrot.py #| tee >(wl-copy)
 end
 
+alias bluestrong="nohup hyprsunset --temperature 3500 >/dev/null 2>&1 & disown"
+alias bluestrongest="nohup hyprsunset --temperature 3000 >/dev/null 2>&1 & disown"
 
 alias blue="/home/allan/nvim/bash/colors.sh blue"
 alias black="/home/allan/nvim/bash/colors.sh black"
@@ -147,8 +149,8 @@ alias todo="/home/allan/nvim/cpp/todo/todo /home/allan/nvim/cpp/todo/todo.txt"
 #alias blue="hyprshade on blue-light-filter"
 #alias bluetoggle="hyprshade toggle"
 #alias blue="hyprsunset --temperature 4000 & disown"
-alias bluestrong="hyprsunset --temperature 3500 & disown"
-alias bluestrongest="hyprsunset --temperature 2500 & disown"
+#alias bluestrong="nohup hyprsunset --temperature 3500 >/dev/null 2>&1 &"
+#alias bluestrongest="nohup hyprsunset --temperature 2500 >/dev/null 2>&1 &"
 alias blueoff="pkill -x hyprsunset"
 alias n-word="nvim"
 alias chigga="nvim"
