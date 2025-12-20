@@ -52,8 +52,8 @@ return {
           ["@variable"] = { fg = "#93b7f2" }, 
 --          ["@variable.parameter"] = { fg = "#949dff" }, 
           ["@variable.parameter"] = { fg = "#53a1e0" }, 
-          ["@parameter"] = { fg = "#949dff" }, 
-          Paramter = { fg = "#949dff" }, 
+          ["@parameter"] = { fg = "#3471eb" }, 
+          Parameter = { fg = "#3471eb" }, 
           --["@variable.parameter"] = { fg = "#65959f" }, --67b5c5 
           ["@keyword.function"] = { fg = "#5f8dd9" },
           Function = { fg = "#6d9cd3" }, 

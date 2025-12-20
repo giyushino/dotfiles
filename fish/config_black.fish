@@ -175,3 +175,7 @@ set -gx PATH $PATH /home/allan/.lmstudio/bin
 
 set -x LS_COLORS "di=0;37:fi=1;97"
 alias ls="ls --color=auto"
+alias rotate="hyprctl keyword monitor DP-1,preferred,auto,1,transform,1"
+alias below="hyprctl keyword monitor DP-1,preferred,0x1600,1,transform,2"
+alias audio="/home/allan/nvim/bash/audio.sh"
+set -x NGROK_AUTHTOKEN "35SV8xbC43zL162bxGmi9tVNnrZ_8Hr2c6LfV7L5imCQfzpa"

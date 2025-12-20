@@ -13,7 +13,8 @@ return {
     dependencies = { 'williamboman/mason.nvim' },
     config = function()
       require('mason-lspconfig').setup({
-        ensure_installed = { "pyright", "clangd", "texlab", "tinymist", "ocamllsp", "eslint", "vtsls", "html", "lua_ls" },
+        --ensure_installed = { "pyright", "clangd", "texlab", "tinymist", "ocamllsp", "eslint", "vtsls", "html", "lua_ls", "pyrefly" },
+        ensure_installed = { "clangd", "texlab", "tinymist", "ocamllsp", "eslint", "vtsls", "html", "lua_ls", "pyrefly" },
         automatic_installation = true,
       })
     end,
@@ -29,7 +30,8 @@ return {
       ---------------------------------------------------
       -- Python
       ---------------------------------------------------
-      vim.lsp.config['pyright'] = {}
+      --vim.lsp.config['pyright'] = {}
+      vim.lsp.config['pyrefly'] = {}
 
       ---------------------------------------------------
       -- C/C++
@@ -62,7 +64,12 @@ return {
       ---------------------------------------------------
       -- HTML
       ---------------------------------------------------
-      vim.lsp.config['html'] = {}
+      vim.lsp.config['html'] = {
+        on_attach = function(client)
+          client.server_capabilities.documentFormattingProvider = false
+          client.server_capabilities.documentRangeFormattingProvider = false
+        end
+      }
 
       ---------------------------------------------------
       -- TypeScript / JavaScript

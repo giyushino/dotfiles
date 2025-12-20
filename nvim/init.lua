@@ -61,7 +61,8 @@ vim.api.nvim_set_keymap('n', '.', '<Nop>', { noremap = true, silent = true })
 
 vim.opt.clipboard:append({ "unnamed", "unnamedplus" })
 
-vim.api.nvim_set_keymap('n', 'f', ':lua Snacks.dashboard.pick()<CR>', { noremap = true, silent = true })
+--vim.api.nvim_set_keymap('n', 's', ':lua Snacks.dashboard.pick()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 's', "<cmd>lua require('telescope.builtin').find_files()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'g', ":lua Snacks.dashboard.pick('live_grep')<CR>", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '<leader>;', ':ToggleTerm<CR>', { noremap = true, silent = true })
@@ -208,4 +209,4 @@ vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
 vim.keymap.set({'n', 'i'}, '<leader>s', vim.lsp.buf.signature_help, { silent = true, noremap = true, desc = "Show signature help" })
-
+vim.keymap.set("n", "<leader>tf", ":NvimTreeFindFile<CR>", { desc = "NvimTree Find File" })

@@ -22,11 +22,6 @@ font pango:monospace 8
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id xrandr --output DP-1-1 --right-of DP-2 --mode 1080x1920 --rate 60 
-exec --no-startup-id xrandr --output DP-2 --mode 2560x1600 --rate 240
-exec --no-startup-id picom --config ~/.config/picom/picom.conf --no-daemon
-exec --no-startup-id xrandr --output DP-1-1 --rotate left
-
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -38,6 +33,14 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
+
+exec_always --no-startup-id xrandr --output DP-2 --primary --mode 2560x1600 --rate 240 --auto
+exec_always --no-startup-id xrandr --output HDMI-0 --mode 1920x1080 --rate 143.98 --pos 0x-1600 --scale 1.2
+#exec_always --no-startup-id xrandr --output DP-1-1 --mode 1920x1080 --rate 60 --pos 0x-1600 --scale 1
+exec feh --bg-scale /home/allan/Downloads/images/bleach1.jpeg
+exec_always --no-startup-id balanced
+
+
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -61,6 +64,7 @@ bindsym $mod+c kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+r exec rofi -show run
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -95,7 +99,7 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+Shift+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -106,7 +110,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+v floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -183,17 +187,21 @@ mode "resize" {
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+        #bindsym $mod+r mode "default"
 }
 
-bindsym $mod+r mode "resize"
-default_border pixel 0
-
-new_window none
-# Set gaps between windows
-gaps inner 10
-gaps outer 5
-
+#bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+bar {
+        status_command i3status
+}
+
+# Increase brightness
+bindsym F8 exec brightnessctl set +10%
+
+# Decrease brightness
+bindsym F7 exec brightnessctl set 10%-
+
+bindsym $mod+Shift+s exec --no-startup-id sh -c 'scrot -s - | xclip -selection clipboard -t image/png'
