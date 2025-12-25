@@ -31,7 +31,6 @@ return {
     Keyword = "#657fda",
   },
 
-  -- Extra highlights set after colorscheme loads
   extra_highlights = {
     LspSignatureActiveParameter = { fg = "#B19CD7", bold = true },
     Statement = { fg = "#8ecdc8", italic = true },
@@ -39,7 +38,6 @@ return {
     texNormal = { fg = "#a8c4ec" },
   },
 
-  -- Lualine colors
   lualine = {
     bg_dark = "#3B4252",
     bg_mid = "#4C566A",

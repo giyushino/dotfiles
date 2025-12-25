@@ -9,6 +9,8 @@ return {
     Normal = { fg = "#ffffff", bg = "#1c1c1c" },
     Comment = { fg = "#e5dfda" },
     Title = { fg = "#e5dfda" },
+    Keyword = { fg = "#ffffff" },
+    ["@keyword"] = { fg = "#eae7e6" },
     ["@keyword.return"] = { fg = "#eae7e6", bold = true },
     ["@function.builtin"] = { fg = "#A0A1A0", bold = true },
     ["@variable.builtin"] = { fg = "#DEDEDE", bold = true },
@@ -16,22 +18,34 @@ return {
     texCmdGreek = { fg = "#DEDEDE", bold = true },
     SnacksPickerDir = { fg = "#8E8E8E" },
     SnacksPickerFile = { fg = "#FFFFFF" },
+    SnacksDashboardDir = { fg = "#FFFFFF" },
     SnacksPickerPathIgnored = { fg = "#FFFFFF" },
     SnacksPickerGitStatusUntracked = { fg = "#FFFFFF" },
     SnacksBorder = { fg = "#585858" },
   },
 
-  -- Extra highlights (none for black, handled in highlights)
-  extra_highlights = {},
+  -- Extra highlights
+  extra_highlights = {
+    -- NvimTree
+    NvimTreeNormal = { fg = "#ffffff", bg = "None" },
+    NvimTreeFolderName = { fg = "#ffffff" },
+    NvimTreeOpenedFolderName = { fg = "#ffffff", bold = true },
+    NvimTreeEmptyFolderName = { fg = "#808080" },
+    NvimTreeRootFolder = { fg = "#ffffff", bold = true },
+    NvimTreeSymlink = { fg = "#cccccc" },
+    NvimTreeGitDirty = { fg = "#cccccc" },
+    NvimTreeGitNew = { fg = "#ffffff" },
+    NvimTreeGitDeleted = { fg = "#808080" },
+    NvimTreeSpecialFile = { fg = "#ffffff", underline = true },
+  },
 
   -- Lualine colors
   lualine = {
-    theme = "monoglow", -- use built-in theme
     bg_dark = "#1c1c1c",
     bg_mid = "#2c2c2c",
     fg = "#ffffff",
     fg_bright = "#ffffff",
-    accent = "#808080",
+    accent = "#1bfd9c",
     accent_alt = "#585858",
     warning = "#EBCB8B",
   },

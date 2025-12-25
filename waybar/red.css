@@ -1,0 +1,8 @@
+@define-color accent #fa8469;
+@define-color accent #f69697;
+@define-color background #1a0a0a;
+@define-color active_bg #4a2a2a;
+@define-color urgent_bg #e06c75;
+@define-color critical_bg #d19a66;
+@define-color warning_bg #d19a66;
+@define-color critical_text #1a0a0a;
