@@ -202,6 +202,8 @@ function OpenDiagnosticFloat()
 end
 
 vim.api.nvim_set_keymap('n', '<C-[>', ':lua OpenDiagnosticFloat()<CR>', { noremap = true, silent = true })
+vim.keymap.set('i', '<C-k>', vim.lsp.buf.signature_help)
+vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help)
 
 
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
@@ -210,3 +212,4 @@ vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
 vim.keymap.set({'n', 'i'}, '<leader>s', vim.lsp.buf.signature_help, { silent = true, noremap = true, desc = "Show signature help" })
 vim.keymap.set("n", "<leader>tf", ":NvimTreeFindFile<CR>", { desc = "NvimTree Find File" })
+
